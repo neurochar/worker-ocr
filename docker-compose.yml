@@ -1,0 +1,27 @@
+services:
+  worker-gpu:
+    build:
+      dockerfile: app.Dockerfile
+    ports:
+      - '8010:8000'
+      - '50061:50051'
+    environment:
+      - OCR_DEVICE=gpu
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  worker-cpu:
+    build:
+      dockerfile: app.Dockerfile
+    ports:
+      - '8011:8000'
+      - '50062:50051'
+    environment:
+      - OCR_DEVICE=cpu
+    restart: unless-stopped
