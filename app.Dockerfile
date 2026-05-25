@@ -11,8 +11,7 @@ WORKDIR /app
 
 COPY requirements-app.txt /app/requirements-app.txt
 
-RUN --mount=type=cache,target=/root/.cache/pip \
-    python -m pip install --no-cache-dir -r /app/requirements-app.txt
+RUN python -m pip install --no-cache-dir -r /app/requirements-app.txt
 
 COPY main.py /app/main.py
 COPY pb/ /app/pb/

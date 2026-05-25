@@ -1,0 +1,11 @@
+.git
+.gitignore
+.github
+docker-compose.yml
+README.md
+readme.txt
+Makefile
+_proto_deps
+base.Dockerfile
+requirements-base.txt
+k8s.yaml
